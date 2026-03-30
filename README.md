@@ -5,18 +5,6 @@ This project was created as a Valentine's greeting for my special person. At the
 
 ---
 
-## Features
-
-- **Software Pixel Buffer** — All rendering is done by writing to a `uint32_t` buffer that gets uploaded to a GPU texture each frame via OpenGL.
-- **Sprite System** — Custom 1-bit sprites for aliens, the player, projectiles, a title card, and a death animation. Supports scaled drawing.
-- **Animated Aliens** — Two-frame flip-book animation for aliens. Aliens take two hits to destroy, showing a death sprite on the first hit.
-- **Typewriter Narrative** — After all aliens are cleared, a multi-page text animation plays using a character-by-character typewriter effect.
-- **Branching Ending** — At the end of the narrative, two alien targets appear labeled YES and NO. Shooting one or the other determines the ending.
-- **Custom Pixel Font** — A built-in 5×7 spritesheet font supports full uppercase ASCII text and numbers.
-- **Title Screen** — A startup screen with a pixel-art "SPACE INVADERS" logo and control hints.
-
----
-
 ## Controls
 
 | Key         | Action              |
@@ -68,27 +56,9 @@ g++ -std=c++17 main.cpp -o space_invaders.exe \
 
 ---
 
-## Project Structure
-
-```
-.
-└── main.cpp          # Entire game: rendering, input, sprites, game logic, narrative
-```
-
-The project is intentionally contained in a single file. Key sections are clearly delimited with block comments:
-
-- `PACKAGE INITIALIZATION` — GLFW/GLEW/OpenGL setup
-- `BUFFER SETUP` — Shader compilation, texture creation
-- `SPRITES` — All sprite and animation data
-- `PAGE SETUP` — Narrative text page definitions
-- `GAME SETTINGS` — Alien grid layout and player initialization
-- `GAME LOOP` — Per-frame rendering, input handling, collision detection
-
----
-
 ## Customizing the Narrative
 
-The story text is defined in the `PAGE SETUP` section of `main.cpp`. There are 4 pages (indices 0–3):
+You can include a special message at the end of the game. The text is defined in the `PAGE SETUP` section of `main.cpp`. There are 4 pages (indices 0–3):
 
 - **Page 0** — Intro text shown after all aliens are destroyed
 - **Page 1** — The choice prompt (ends with the YES/NO alien targets appearing)
